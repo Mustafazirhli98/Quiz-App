@@ -1,0 +1,53 @@
+.btn-start {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 80px;
+}
+
+.card-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    width: 550px;
+    padding: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.card-box.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.card-header {
+    padding: 10px;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.question-text {
+    padding: 15px 0;
+    font-size: large;
+    font-weight: 400;
+}
+
+.option-list {
+    padding: 10px 0
+}
+.option {
+    margin-top:10px;
+    padding:10px;
+    border: 1px solid black;
+    border-radius:8px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: red;
+}
