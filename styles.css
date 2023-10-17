@@ -45,6 +45,18 @@ body {
     font-size: 15px;
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+}
+
+.line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: red;
+    width: 200px;
+    height: 4px; 
 }
 
 .card-body {
@@ -88,9 +100,6 @@ body {
     pointer-events: none;
 }
 
-.disableda {
-    opacity: 0.4;
-}
 
 .btn-next {
     opacity: 0.5;
