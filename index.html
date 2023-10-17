@@ -7,27 +7,32 @@
     <title>Quiz App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
 
 
-    <button class="btn-start btn btn-success">Başla</button>
-
+    <button class="btn-start btn">Başla</button>
     <div class="card card-box">
-
         <header class="card-header">
             <span>Quiz App</span>
         </header>
         <section class="card-body">
             <div class="question-text"></div>
-             <div class="option-list"></div> 
+            <div class="option-list"></div>
         </section>
         <footer class="card-footer">
-            <button class="btn-next btn btn-primary btn-sm">Sıradaki soru</button>
+            <button class="btn-next disableda btn btn-sm">Sıradaki soru</button>
         </footer>
     </div>
+
+
+
+
 
     <script src="/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
