@@ -10,7 +10,7 @@ body {
     background-color: #2C3A47;
 }
 
-.btn-start {
+.btn-start, .card-box, .score-box {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -25,9 +25,6 @@ body {
 }
 
 .card-box {
-    position: absolute;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%) scale(0.7);
     width: 550px;
     padding: 10px;
@@ -35,10 +32,6 @@ body {
     pointer-events: none;
     transition: all 0.3s ease;
     background-color: #f6f6f6
-}
-.card-body {
-        background-color:#fcfcfceb ;
-
 }
 
 .card-box.active {
@@ -52,6 +45,11 @@ body {
     font-size: 15px;
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.card-body {
+        background-color:#fcfcfceb ;
+
 }
 
 .question-text {
@@ -109,4 +107,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.score-box {
+    transform: translate(-50%, -50%) scale(0.7);
+    width: 550px;
+    padding: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: #f6f6f6;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.score-box.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
 }

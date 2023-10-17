@@ -1,6 +1,15 @@
 let btnStart = document.querySelector(".btn-start");
 let btnNext = document.querySelector(".btn-next");
 let optionList = document.querySelector(".option-list");
+let amountDiv = document.querySelector(".question-amount")
+let scoreBox = document.querySelector(".score-box")
+let cardBox = document.querySelector(".card-box")
+let result = document.querySelector(".result")
+let btnReplay= document.querySelector(".btn-replay")
+let btnFinish= document.querySelector(".btn-finish")
+
+
+let amountOfCorrects = 0
 
 // Soru oluşturma constructor'ı başlangıç
 function Question(questionText, answers, correctAnswer) {
@@ -14,10 +23,10 @@ Question.prototype.checkTheAnswer = function (userAnswer) {
 // Soru oluşturma constructor'ı başlangıç
 
 let data = [
-    new Question("1-Hangisi bir Frontend Dilidir", { a: "Javascript", b: "Angular", c: ".Net", d: "C++" }, "a"),
-    new Question("2-aaa", { a: "Javascript", b: "Angular", c: ".Net", d: "C++" }, "a"),
-    new Question("3-aaa", { a: "Javascript", b: "Angular", c: ".Net", d: "C++" }, "a"),
-    new Question("4-aaa", { a: "Javascript", b: "Angular", c: ".Net", d: "C++" }, "a"),
+    new Question("1-Hangisi bir Frontend Dilidir?", { a: "Javascript", b: "Angular", c: ".Net", d: "C++" }, "a"),
+    new Question("2-Hangi framework Javascript temellidir?", { a: "Spring", b: ".Net", c: "React", d: "Symfony" }, "c"),
+    new Question("3-Hangi metot sayesinde dizi içerisindeki tüm elemanlar işlemden geçer ve çıktı dizi halinde döner?", { a: "trim()", b: "forEach()", c: "pop()", d: "map()" }, "d"),
+    new Question("4-Javascript'te bir dizi içerisindeki elemanlar hangi index numarasından başlar?", { a: "1", b: "0", c: "2", d: "-1" }, "b"),
 ]
 
 //Quiz oluşturma constructor'ı başlangıç. 
@@ -37,16 +46,32 @@ let quiz = new Quiz(data)
 
 
 btnStart.addEventListener("click", () => {
-    document.querySelector(".card-box").classList.add("active");
+    cardBox.classList.add("active");
     nextQuestion(quiz.bringQuestion())
+    questionAmount(quiz.questionIndex + 1, quiz.questions.length)
+
 })
 
 btnNext.addEventListener("click", () => {
-    if (quiz.questionIndex < quiz.questions.length - 1) {
+    if (quiz.questions.length !== quiz.questionIndex + 1) {
         quiz.questionIndex += 1
         nextQuestion(quiz.bringQuestion())
-    } else console.log("quiz bitti")
+        questionAmount(quiz.questionIndex + 1, quiz.questions.length)
+    } else {
+        scoreBox.classList.add("active");
+        cardBox.classList.remove("active")
+        btnStart.classList.add("d-none")
+        showResult(amountOfCorrects, quiz.questions.length)
+        console.log("quiz bitti")
+    }
 
+})
+
+btnFinish.addEventListener("click", function () {
+    window.location.reload();
+})
+btnReplay.addEventListener("click", function() {
+    btnStart.click()
 })
 
 const nextQuestion = (item) => {
@@ -72,11 +97,14 @@ const nextQuestion = (item) => {
         children.classList.add("flex"); //Burada her bir şık kutucuğunun içi flex sınıfıyla düzenleniyor. Aşağıda eklenen iconun kutucukta sağda kalması için.
     }
 }
+
+
 const optionSelected = (item) => {
     let userAnswer = item.querySelector("span b").textContent;
     let currentQuestion = quiz.bringQuestion();
 
     if (currentQuestion.checkTheAnswer(userAnswer)) {
+        amountOfCorrects += 1
         item.classList.add("correct");
         markCorrectAnswer()
     } else {
@@ -87,11 +115,10 @@ const optionSelected = (item) => {
 
     for (let i = 0; i < optionList.children.length; i++) {
         optionList.children[i].classList.add("disabled");
-        console.log(optionList.children[i].classList);
     }
     btnNext.classList.add("active");
 
-// Doğru-Yanlış iconlarının eklendiği yer.
+    // Doğru-Yanlış iconlarının eklendiği yer.
     let correctIcon = `<i class="fa fa-check"></i>`
     let incorrectIcon = `<i class="fa fa-times"></i>`
 
@@ -112,8 +139,14 @@ const markCorrectAnswer = () => {
     }
 }
 
+const questionAmount = (current, amount) => {
+    let amountElement = `<span>${current}/${amount}</span>`;
+    amountDiv.innerHTML = amountElement;
+}
 
 
 
-// correct veya incorrect ikonu eklenecek.
-
+const showResult = (correctAnswerss, totalQuestion) => {
+    let tag = `<span><b>Doğru sayısı:</b>${correctAnswerss}    <b>Yanlış sayısı:</b>${totalQuestion}</span>`;
+    result.innerHTML = tag
+}
