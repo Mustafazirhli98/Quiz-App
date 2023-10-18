@@ -92,10 +92,9 @@ const optionSelected = (item) => {
         variables.optionList.children[i].classList.add("disabled");
     }
     variables.btnNext.classList.add("active");
-    if (item.classList.contains("correct")) { //bu kısım da cevap verildikten sonra doğru veya yanlış için icon eklemekte.
-        item.insertAdjacentHTML("beforeend", correctIcon)
-    } else item.insertAdjacentHTML("beforeend", incorrectIcon)
-
+    if (!item.classList.contains("correct")) {
+        item.insertAdjacentHTML("beforeend", incorrectIcon) //Burada yalnızca incorrectIcon ekledik çünkü correctIcon eklemek için zaten markCorrectAnswer adlı fonksiyon aşağıda mevcut.
+    } 
 }
 //#endregion
 
