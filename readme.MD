@@ -1,1 +1,1 @@
-![proje resmi](/Ekran%20görüntüsü%202023-10-18%20141455.png)
+![proje resmi](./img/Ekran%20görüntüsü%202023-10-18%20141455.png)
