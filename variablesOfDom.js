@@ -13,24 +13,6 @@ function Variables() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//variablesDom klasörü ve buna bağlı olarak script.js içindeki değişken isimleri düzenlenecek.
-//projenin genel tekrarı yapılacak
-//css düzenlemeleri yapılacak
-//github'a yüklenecek
+// yeni soruya geçince süre animasyonu da sıfırlansın.
+//projenin genel tekrarı yapılacak.
+//github'a yüklenecek.

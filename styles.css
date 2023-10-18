@@ -1,4 +1,5 @@
-html,body {
+html,
+body {
     width: 100%;
     height: 100%;
     padding: 0;
@@ -10,7 +11,9 @@ body {
     background-color: #2C3A47;
 }
 
-.btn-start, .card-box, .score-box {
+.btn-start,
+.card-box,
+.score-box {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -21,7 +24,7 @@ body {
 }
 
 .btn-start:hover {
-    background-color: #bacbb6;
+    background-color: #bed4e1;
 }
 
 .card-box {
@@ -31,7 +34,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
-    background-color: #f6f6f6
+    background-color: #1427477c;
 }
 
 .card-box.active {
@@ -47,21 +50,19 @@ body {
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     justify-content: space-between;
-    position:relative;
+    position: relative;
+}
+
+.card-body {
+    background-color: #bed4e1;
 }
 
 .line {
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: red;
-    width: 200px;
-    height: 4px; 
-}
-
-.card-body {
-        background-color:#fcfcfceb ;
-
+    background-color: #f0932b;
+    height: 4px;
 }
 
 .question-text {
@@ -83,7 +84,7 @@ body {
 }
 
 .option:hover {
-    background-color: #F8EFBA;
+    background-color: #e0e7e7;
 }
 
 .correct {
@@ -100,7 +101,6 @@ body {
     pointer-events: none;
 }
 
-
 .btn-next {
     opacity: 0.5;
     pointer-events: none;
@@ -110,6 +110,10 @@ body {
     opacity: 1;
     pointer-events: auto;
     background-color: #e9e9e9;
+}
+
+.btn-next.active:hover {
+    background-color: #e0e7e7;
 }
 
 .flex {
@@ -124,6 +128,11 @@ footer {
     align-items: center;
 }
 
+.question-amount {
+    background-color: #f0932b;
+    padding: 8px 12px;
+    font-size: 12px;
+}
 
 .score-box {
     transform: translate(-50%, -50%) scale(0.7);
@@ -132,8 +141,8 @@ footer {
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
-    background-color: #f6f6f6;
-    display:flex;
+    background-color: #bed4e1;
+    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -143,4 +152,18 @@ footer {
     opacity: 1;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
+}
+
+.time {
+    font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    .card-box {
+        width: 300px;
+    }
+
+    .line {
+        display: none;
+    }
 }

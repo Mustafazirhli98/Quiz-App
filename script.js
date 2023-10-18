@@ -18,11 +18,14 @@ variables.btnStart.addEventListener("click", () => {
 })
 
 variables.btnNext.addEventListener("click", () => {
+
+    variables.remainingTime.innerHTML = ""
+    clearInterval()
+    timeLine()
+    clearInterval(counterRemainingTime)
+    setTime(10)
     if (quiz.questions.length !== quiz.questionIndex + 1) {
         quiz.questionIndex += 1;
-        timeLine()
-        clearInterval(counterRemainingTime)
-        setTime(10)
         nextQuestion(quiz.bringQuestion())
         questionAmount(quiz.questionIndex + 1, quiz.questions.length)
     } else {
@@ -40,11 +43,14 @@ variables.btnFinish.addEventListener("click", function () {
 variables.btnReplay.addEventListener("click", function () {
     quiz.questionIndex = 0;
     variables.btnStart.click();
+    variables.scoreBox.classList.remove("active")
 })
 //#endregion
 
 //#region function => to create questions and answers.
 const nextQuestion = (item) => {
+    clearInterval(counterRemainingTime);
+    setTime(10)
     variables.btnNext.classList.remove("active")
     let question = `
     <span>${item.questionText}</span>`;
@@ -148,10 +154,10 @@ const timeLine = () => {
     let lineWidth = 0;
     counterLineWidth = setInterval(() => {
         lineWidth += 1;
-        variables.line.style.width = lineWidth + "px"
-        if (lineWidth > 525) {
-            clearInterval(counterLineWidth)
+        variables.line.style.width = lineWidth + "px";
+        if (lineWidth > 527) {
+            clearInterval(counterLineWidth);
         }
-    }, 21)
-}
+    }, 21);
+};
 //#endregion
