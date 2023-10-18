@@ -107,6 +107,7 @@ const markCorrectAnswer = () => { // Bu fonksiyonun her halukarda çalışması 
     for (let i = 0; i < options.length; i++) {
         if (options[i].querySelector("span b").textContent === correctAnswerOfCurrent) {
             options[i].classList.add("correct");
+            options[i].insertAdjacentHTML("beforeend", correctIcon);
         }
     }
 }
@@ -137,7 +138,7 @@ const setTime = (time) => {
             let options = variables.optionList.querySelectorAll(".option");
             let correctOption = quiz.bringQuestion().correctAnswer
             for (let option of options) {
-                if (option.querySelector("span b").textContent == correctOption) {
+                if (option.querySelector("span b").textContent === correctOption) {
                     option.classList.add("correct");
                     option.insertAdjacentHTML("beforeend", correctIcon)
                     option.classList.add("disabled")
